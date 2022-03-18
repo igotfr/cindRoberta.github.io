@@ -16,16 +16,19 @@
   <div>IP: <span id="ip"></span></div>
 
 <script>
-const l;
-const response = fetch('https://geolocation-db.com/json/').then(r => r.json());
-response.then(v => l = v);
-console.log(l);
-document.getElementById('country').innerHTML = l.country_name;
-document.getElementById('state').innerHTML = l.state;
-document.getElementById('city').innerHTML = response.city;
-document.getElementById('latitude').innerHTML = response.latitude;
-document.getElementById('longitude').innerHTML = response.longitude;
-document.getElementById('ip').innerHTML = response.IPv4;
+(async () => {
+  //const l;
+  const response = await fetch('https://geolocation-db.com/json/').then(r => r.json());
+  console.log(response);
+  document.getElementById('country').innerHTML = response.country_name;
+  document.getElementById('state').innerHTML = response.state;
+  document.getElementById('city').innerHTML = response.city;
+  document.getElementById('latitude').innerHTML = response.latitude;
+  document.getElementById('longitude').innerHTML = response.longitude;
+  document.getElementById('ip').innerHTML = response.IPv4;
+  //response.then(v => l = v);
+  //console.log(l);
+})();
 </script>
 
 </body>
