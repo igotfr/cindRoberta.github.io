@@ -8,15 +8,20 @@
 </head>
 
 <body>
-  <div>Country: <span id="country"></span></div>
+  <!--div>Country: <span id="country"></span></div>
   <div>State: <span id="state"></span></div>
   <div>City: <span id="city"></span></div>
   <div>Latitude: <span id="latitude"></span></div>
   <div>Longitude: <span id="longitude"></span></div>
-  <div>IP: <span id="ip"></span></div>
+  <div>IP: <span id="ip"></span></div-->
 
 <script>
-(async () => {
+async function getCoords() {
+  return await new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject));
+}
+
+getCoords().then(v => console.log(v));
+/*(async () => {
   //const l;
   const response = await fetch('https://geolocation-db.com/json/').then(r => r.json());
   console.log(response);
@@ -28,7 +33,7 @@
   document.getElementById('ip').innerHTML = response.IPv4;
   //response.then(v => l = v);
   //console.log(l);
-})();
+})();*/
 </script>
 
 </body>
